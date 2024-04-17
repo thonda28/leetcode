@@ -1,0 +1,10 @@
+{
+    "leetcode.defaultLanguage": "python3",
+    "leetcode.workspaceFolder": "/workspaces/leetcode/problems",
+    "leetcode.filePath": {
+        "default": {
+            "folder": "${difficulty}/${language}",
+            "filename": "${id}.${kebab-case-name}.${ext}"
+        }
+    }
+}
