@@ -8,7 +8,8 @@
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"LeetCode.vscode-leetcode"
+				"LeetCode.vscode-leetcode",
+				"yzhang.markdown-all-in-one"
 			]
 		}
 	},
