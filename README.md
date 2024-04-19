@@ -20,8 +20,9 @@ LeetCode の問題を以下手順で解く
 
 ## 解いた問題一覧
 
-| #   | Title | Language | Difficulty |
-| --- | ----- | -------- | ---------- |
+| #   | Title                                                                 | Language | Difficulty |
+| --- | --------------------------------------------------------------------- | -------- | ---------- |
+| 322 | [Coin Change](https://leetcode.com/problems/coin-change/description/) | Python3  | Medium     |
 
 ## その他
 
