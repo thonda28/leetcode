@@ -3,8 +3,8 @@
     "leetcode.workspaceFolder": "/workspaces/leetcode/problems",
     "leetcode.filePath": {
         "default": {
-            "folder": "${difficulty}/${language}",
-            "filename": "${id}.${kebab-case-name}.${ext}"
+            "folder": "${difficulty}/${language}/${id}",
+            "filename": "${id}.${kebab-case-name}.step.${ext}"
         }
     }
 }
