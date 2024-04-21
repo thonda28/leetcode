@@ -4,7 +4,7 @@
     "leetcode.filePath": {
         "default": {
             "folder": "${difficulty}/${language}/${id}",
-            "filename": "${id}.${kebab-case-name}.step.${ext}"
+            "filename": "${kebab-case-name}.step.${ext}"
         }
     }
 }
