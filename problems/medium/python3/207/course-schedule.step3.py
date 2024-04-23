@@ -8,25 +8,25 @@
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         postrequisites_of_courses = [[] for _ in range(numCourses)]
-        num_prerequisites_of_courses = [0 for _ in range(numCourses)]
+        for course, prerequisite in prerequisites:
+            postrequisites_of_courses[prerequisite].append(course)
 
-        for course, pre in prerequisites:
-            postrequisites_of_courses[pre].append(course)
-            num_prerequisites_of_courses[course] += 1
+        NOT_CHECKED, CHECKING, COMPLETED = 0, 1, 2
+        def hasCycle(labels: List[int], course: int) -> bool:
+            if labels[course] == CHECKING:
+                return True
+            if labels[course] == COMPLETED:
+                return False
+            labels[course] = CHECKING
+            for post in postrequisites_of_courses[course]:
+                if hasCycle(labels, post):
+                    return True
+            labels[course] = COMPLETED
+            return False
 
-        visited = set()
-        for i in range(numCourses):
-            if num_prerequisites_of_courses[i] == 0:
-                self.reducePrereqisite(postrequisites_of_courses, num_prerequisites_of_courses, visited, i)
-        return not any(num_prerequisites_of_courses)
-
-    def reducePrereqisite(self, postrequisites_of_courses: List[List[int]], num_prerequisites_of_courses: List[int], visited: Set[int], course: int):
-        if course in visited:
-            return
-        visited.add(course)
-        for post in postrequisites_of_courses[course]:
-            num_prerequisites_of_courses[post] -= 1
-            if num_prerequisites_of_courses[post] == 0:
-                self.reducePrereqisite(postrequisites_of_courses, num_prerequisites_of_courses, visited, post)
-
+        labels = [NOT_CHECKED for _ in range(numCourses)]
+        for course in range(numCourses):
+            if hasCycle(labels, course):
+                return False
+        return True
 # @lc code=end
