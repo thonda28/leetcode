@@ -15,14 +15,17 @@ class Solution:
         """
         Do not return anything, modify head in-place instead.
         """
-        center = self.get_center(head)
-        front = head
-        rear = center.next
-        center.next = None
-        reversed_rear = self.reverse(rear)
-        self.connect_altenately(front, reversed_rear)
+        middle_node = self.get_middle_node(head)
+        front_head = head
+        back_head = middle_node.next
+        middle_node.next = None
+        reversed_back_head = self.reverse(back_head)
+        self.interleave(front_head, reversed_back_head)
 
-    def get_center(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    def get_middle_node(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """
+        When the number of nodes is even, return the last node of the front part
+        """
         if not head:
             return head
         slow = head
@@ -41,7 +44,7 @@ class Solution:
             prev, curr = curr, next
         return prev
 
-    def connect_altenately(self, head1: Optional[ListNode], head2: Optional[ListNode]) -> None:
+    def interleave(self, head1: Optional[ListNode], head2: Optional[ListNode]) -> None:
         while head1 and head2:
             next1 = head1.next
             next2 = head2.next
