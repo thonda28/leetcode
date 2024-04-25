@@ -22,7 +22,8 @@ LeetCode の問題を以下手順で解く
 
 | #   | Title                                                                                                 | Language | Difficulty |
 | --- | ----------------------------------------------------------------------------------------------------- | -------- | ---------- |
-| 207 | [Course Schedule](https://leetcode.com/problems/course-schedule/description/)                         | Python3  | Medium     |
+| 143 | [Reorder List](https://leetcode.com/problems/reorder-list/description/)                               | Python3  | Medium     |
+| 207 | [Course Schedule](https://leetcode.com/problems/ourse-schedule/description/)                          | Python3  | Medium     |
 | 322 | [Coin Change](https://leetcode.com/problems/coin-change/description/)                                 | Python3  | Medium     |
 | 417 | [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/description/) | Python3  | Medium     |
 
