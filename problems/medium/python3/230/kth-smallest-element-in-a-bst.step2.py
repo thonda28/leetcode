@@ -15,16 +15,18 @@ class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         kth_smallest = 0
 
-        def search_inorder(root: Optional[TreeNode]):
+        def search_inorder(root: Optional[TreeNode]) -> bool:
             nonlocal k, kth_smallest
             if not root:
-                return
-            search_inorder(root.left)
+                return False
+
+            if search_inorder(root.left):
+                return True
             k -= 1
             if k == 0:
                 kth_smallest = root.val
-                return
-            search_inorder(root.right)
+                return True
+            return search_inorder(root.right)
 
         search_inorder(root)
         return kth_smallest
