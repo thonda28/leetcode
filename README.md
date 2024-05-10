@@ -24,6 +24,7 @@ LeetCode の問題を以下手順で解く
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ---------- |
 | 3   | [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/description/) | Python3  | Medium     |
 | 5   | [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/description/)                                   | Python3  | Medium     |
+| 73  | [Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/description/)                                                           | Python3  | Medium     |
 | 143 | [Reorder List](https://leetcode.com/problems/reorder-list/description/)                                                                     | Python3  | Medium     |
 | 153 | [Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/description/)                     | Python3  | Medium     |
 | 207 | [Course Schedule](https://leetcode.com/problems/ourse-schedule/description/)                                                                | Python3  | Medium     |
