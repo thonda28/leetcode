@@ -18,32 +18,32 @@ class WordDictionary:
 
     def addWord(self, word: str) -> None:
 
-        def _add_word(trie: Trie, word: str) -> None:
-            if not word:
+        def _add_word(trie: Trie, index: int) -> None:
+            if index == len(word):
                 trie.is_word = True
                 return
-            if word[0] not in trie.children:
-                trie.children[word[0]] = Trie()
-            _add_word(trie.children[word[0]], word[1:])
+            s = word[index]
+            if s not in trie.children:
+                trie.children[s] = Trie()
+            _add_word(trie.children[s], index + 1)
 
-        trie = self.word_dictionary
-        _add_word(trie, word)
+        _add_word(self.word_dictionary, 0)
 
     def search(self, word: str) -> bool:
 
-        def _is_word(trie: Trie, word: str) -> bool:
-            if not word:
+        def _is_word(trie: Trie, index: int) -> bool:
+            if index == len(word):
                 return trie.is_word
-            if word[0] == '.':
+            s = word[index]
+            if s == '.':
                 for child in trie.children.values():
-                    if _is_word(child, word[1:]):
+                    if _is_word(child, index + 1):
                         return True
-            if word[0] not in trie.children:
+            if s not in trie.children:
                 return False
-            return _is_word(trie.children[word[0]], word[1:])
+            return _is_word(trie.children[s], index + 1)
 
-        trie = self.word_dictionary
-        return _is_word(trie, word)
+        return _is_word(self.word_dictionary, 0)
 # Your WordDictionary object will be instantiated and called as such:
 # obj = WordDictionary()
 # obj.addWord(word)
