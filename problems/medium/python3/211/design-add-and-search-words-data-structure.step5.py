@@ -14,23 +14,22 @@ class WordDictionary:
         self.word_dict.add(word)
 
     def search(self, word: str) -> bool:
-        n_period = word.count('.')
-        if n_period == 0:
+        num_periods = word.count('.')
+        if num_periods == 0:
             return word in self.word_dict
-        if n_period == 1:
-            i_period = word.index('.')
+        if num_periods == 1:
             for i in range(26):
-                word_candidate = word[:i_period] + chr(i + 97) + word[i_period + 1:]
-                if word_candidate in self.word_dict:
+                word_replaced_dot = word.replace('.', chr(i + 97))
+                if word_replaced_dot in self.word_dict:
                     return True
             return False
-        if n_period == 2:
-            i_period1 = word.index('.')
-            i_period2 = word.rindex('.')
+        if num_periods == 2:
             for i in range(26):
+                word_replaced_one_dot = word.replace('.', chr(i + 97), 1)
                 for j in range(26):
-                    word_candidate = word[:i_period1] + chr(i + 97) + word[i_period1 + 1:i_period2] + chr(j + 97) + word[i_period2 + 1:]
-                    if word_candidate in self.word_dict:
+                    word_replaced_two_dot = \
+                        word_replaced_one_dot.replace('.', chr(j + 97))
+                    if word_replaced_two_dot in self.word_dict:
                         return True
             return False
         raise ValueError("The number of period in word must be less than 3")
