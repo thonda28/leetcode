@@ -31,6 +31,7 @@ LeetCode の問題を以下手順で解く
 | 207 | [Course Schedule](https://leetcode.com/problems/ourse-schedule/description/)                                                                | Python3  | Medium     |
 | 211 | [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/description/)         | Python3  | Medium     |
 | 230 | [Kth Smallest Element in a BST](https://leetcode.com/problems/kth-smallest-element-in-a-bst/description/)                                   | Python3  | Medium     |
+| 235 | [Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/) | Python3  | Medium     |
 | 322 | [Coin Change](https://leetcode.com/problems/coin-change/description/)                                                                       | Python3  | Medium     |
 | 417 | [Pacific Atlantic Water Flow](https://leetcode.com/problems/pacific-atlantic-water-flow/description/)                                       | Python3  | Medium     |
 
