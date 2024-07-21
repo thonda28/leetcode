@@ -10,15 +10,15 @@ class UnionFind:
         self.roots = list(range(n))
         self.ranks = [0] * n
 
-    def find_root(self, node: int) -> int:
+    def find(self, node: int) -> int:
         if self.roots[node] == node:
             return node
-        self.roots[node] = self.find_root(self.roots[node])
+        self.roots[node] = self.find(self.roots[node])
         return self.roots[node]
 
-    def unite(self, node1: int, node2: int) -> bool:
-        root1 = self.find_root(node1)
-        root2 = self.find_root(node2)
+    def union(self, node1: int, node2: int) -> bool:
+        root1 = self.find(node1)
+        root2 = self.find(node2)
         if root1 == root2:
             return False
 
@@ -51,11 +51,11 @@ class Solution:
                 node = calc_node(row, col)
                 if is_inside(row, col + 1) and grid[row][col + 1] == '1':
                     right_node = calc_node(row, col + 1)
-                    if uf.unite(node, right_node):
+                    if uf.union(node, right_node):
                         num_islands -= 1
                 if is_inside(row + 1, col) and grid[row + 1][col] == '1':
                     lower_node = calc_node(row + 1, col)
-                    if uf.unite(node, lower_node):
+                    if uf.union(node, lower_node):
                         num_islands -= 1
         return num_islands
 # @lc code=end
