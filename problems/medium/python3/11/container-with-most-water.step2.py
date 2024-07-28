@@ -5,6 +5,7 @@
 #
 
 # @lc code=start
+import math
 from typing import Callable, List
 
 
@@ -58,15 +59,15 @@ class Solution:
         max_height = max(height)
         max_amount = 0
 
-        last_seen_map = self.swap_index_value(height, use_last_seen=True, default_value=-1)
-        max_seg_tree = SegmentTree(last_seen_map, func=max, default_value=-1)
+        last_seen_map = self.swap_index_value(height, use_last_seen=True, default_value=-math.inf)
+        max_seg_tree = SegmentTree(last_seen_map, func=max, default_value=-math.inf)
         for left in range(n):
             left_height = height[left]
             right = max_seg_tree.range_query(left_height, max_height + 1)
             max_amount = max(max_amount, left_height * (right - left))
 
-        first_seen_map = self.swap_index_value(height, use_last_seen=False, default_value=max_height + 1)
-        min_seg_tree = SegmentTree(first_seen_map, func=min, default_value=len(height) + 1)
+        first_seen_map = self.swap_index_value(height, use_last_seen=False, default_value=math.inf)
+        min_seg_tree = SegmentTree(first_seen_map, func=min, default_value=math.inf)
         for right in range(n - 1, -1, -1):
             right_height = height[right]
             left = min_seg_tree.range_query(right_height, max_height + 1)
