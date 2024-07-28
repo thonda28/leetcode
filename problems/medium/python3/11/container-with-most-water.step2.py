@@ -6,11 +6,11 @@
 
 # @lc code=start
 import math
-from typing import Callable, List
+from typing import Callable, Iterable, List
 
 
 class SegmentTree:
-    def __init__(self, nums: List[int], func: Callable[[int, int], int], default_value: int):
+    def __init__(self, nums: List[int], func: Callable[[Iterable[int]], int], default_value: int):
         self.func = func
         self.default_value = default_value
         x = 1
@@ -27,7 +27,7 @@ class SegmentTree:
         self.tree[index] = value
         while index > 0:
             index = (index - 1) // 2
-            self.tree[index] = self.func(self.tree[2 * index + 1], self.tree[2 * index + 2])
+            self.tree[index] = self.func([self.tree[2 * index + 1], self.tree[2 * index + 2]])
 
     def range_query(self, begin: int, end: int) -> int:
         return self.__sub_query(begin, end, 0, 0, self.n)
@@ -40,7 +40,7 @@ class SegmentTree:
         mid = (left + right) // 2
         val1 = self.__sub_query(begin, end, index * 2 + 1, left, mid)
         val2 = self.__sub_query(begin, end, index * 2 + 2, mid, right)
-        return self.func(val1, val2)
+        return self.func([val1, val2])
 
 
 class Solution:
